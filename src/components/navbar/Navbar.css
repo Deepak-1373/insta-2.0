@@ -19,3 +19,7 @@
   margin-right: 2rem;
   font-size: 1.8rem;
 }
+
+.navbarRight h3 {
+  float: right;
+}
