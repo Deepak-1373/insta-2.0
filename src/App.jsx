@@ -2,7 +2,7 @@ import "./styles.css";
 import { Navbar } from "./components/navbar/Navbar";
 import { Home } from "./components/home/Home";
 
-const App = () => {
+export const App = () => {
   return (
     <div className="app">
       <Navbar />
@@ -10,5 +10,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
