@@ -1,0 +1,6 @@
+.home {
+  width: 100%;
+  flex: 9;
+  margin-top: 1rem;
+  border: 1px solid aqua;
+}

@@ -1,0 +1,6 @@
+.navbar {
+  width: 90%;
+  flex: 1;
+  margin: auto;
+  border: 1px solid red;
+}
