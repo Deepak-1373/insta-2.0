@@ -1,6 +1,21 @@
 .navbar {
   width: 90%;
+  display: flex;
   flex: 1;
   margin: auto;
   border: 1px solid red;
+}
+
+.navbarLeft {
+  flex: 1;
+  margin: auto;
+  margin-left: 2rem;
+  font-size: 1.8rem;
+}
+
+.navbarRight {
+  flex: 3;
+  margin: auto;
+  margin-right: 2rem;
+  font-size: 1.8rem;
 }
