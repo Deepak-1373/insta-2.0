@@ -3,11 +3,25 @@
   flex: 9;
   margin-top: 1rem;
   border: 1px solid aqua;
+  overflow-y: scroll;
 }
 
 .homeCenterDiv {
   width: 60%;
   height: 90%;
   margin: auto;
-  border: 1px solid green;
+  margin-top: 1rem;
+}
+
+.homeImagePreview {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.homeImage {
+  width: 40rem;
+  height: 45rem;
+  padding: 1rem;
 }

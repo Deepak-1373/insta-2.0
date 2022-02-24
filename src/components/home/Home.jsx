@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ReactFileReader from "react-file-reader";
 import { v4 as uuid } from "uuid";
 import "./Home.css";
 
@@ -7,59 +8,54 @@ export const Home = () => {
   const [preview, setPreview] = useState("");
   const [imageList, setImageList] = useState([]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    if (image) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setPreview(reader.result);
-      };
-      reader.readAsDataURL(image);
-      console.log(preview);
-    } else {
-      setPreview("");
-    }
-    setImageList([{ id: uuid(), imageUrl: preview }, ...imageList]);
-  };
-  console.log(imageList);
-
-  const changeHandler = (e) => {
-    const imageFile = e.target.files[0];
-    if (imageFile && imageFile.type.substr(0, 5) === "image") {
-      setImage(imageFile);
-    }
-  };
-
-  // useEffect(() => {
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
   //   if (image) {
   //     const reader = new FileReader();
   //     reader.onload = () => {
-  //       setPreview(reader.result);
+  //       console.log(reader.result);
+  //       setPreview((prev) => reader.result);
   //     };
   //     reader.readAsDataURL(image);
   //   } else {
   //     setPreview("");
   //   }
-  // }, [image]);
+  // };
+
+  // const changeHandler = (e) => {
+  //   const imageFile = e.target.files[0];
+  //   if (imageFile && imageFile.type.substr(0, 5) === "image") {
+  //     setImage(imageFile);
+  //   }
+  // };
+
+  // useEffect(() => {}, []);
+
+  const handleFiles = (files) => {
+    setImageList([{ id: uuid(), imageUrl: files.base64[0] }, ...imageList]);
+  };
 
   return (
     <div className="home">
       <div className="homeCenterDiv">
-        <form onSubmit={submitHandler}>
-          <input type="file" accept="image/*" onChange={changeHandler} />
-          <input type="submit" />
-        </form>
-        {imageList.length > 0 &&
-          imageList.map(({ id, imageUrl }) => (
-            <div key={id}>
+        <ReactFileReader
+          base64={true}
+          multipleFiles={true}
+          handleFiles={handleFiles}
+        >
+          <button>Upload</button>
+        </ReactFileReader>
+        <div className="homeImagePreview">
+          {imageList.length > 0 &&
+            imageList.map(({ id, imageUrl }) => (
               <img
+                key={id}
                 alt="imagePreview"
                 src={imageUrl}
-                style={{ width: "10rem", height: "10rem" }}
+                className="homeImage"
               />
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
     </div>
   );
