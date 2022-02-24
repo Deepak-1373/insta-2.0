@@ -3,10 +3,20 @@ import ReactFileReader from "react-file-reader";
 import { v4 as uuid } from "uuid";
 import "./Home.css";
 
+const getLocalStorageItem = () => {
+  const list = localStorage.getItem("lists");
+  console.log(list);
+  if (list) {
+    return JSON.parse(localStorage.getItem("lists"));
+  } else {
+    return [];
+  }
+};
+
 export const Home = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
-  const [imageList, setImageList] = useState([]);
+  const [imageList, setImageList] = useState(getLocalStorageItem());
 
   // const submitHandler = (e) => {
   //   e.preventDefault();
@@ -29,7 +39,9 @@ export const Home = () => {
   //   }
   // };
 
-  // useEffect(() => {}, []);
+  useEffect(() => {
+    localStorage.setItem("lists", JSON.stringify(imageList));
+  }, [imageList]);
 
   const handleFiles = (files) => {
     setImageList([{ id: uuid(), imageUrl: files.base64[0] }, ...imageList]);
