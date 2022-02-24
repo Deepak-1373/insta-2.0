@@ -16,27 +16,6 @@ const getLocalStorageItem = () => {
 export const Home = () => {
   const [imageList, setImageList] = useState(getLocalStorageItem());
 
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   if (image) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       console.log(reader.result);
-  //       setPreview((prev) => reader.result);
-  //     };
-  //     reader.readAsDataURL(image);
-  //   } else {
-  //     setPreview("");
-  //   }
-  // };
-
-  // const changeHandler = (e) => {
-  //   const imageFile = e.target.files[0];
-  //   if (imageFile && imageFile.type.substr(0, 5) === "image") {
-  //     setImage(imageFile);
-  //   }
-  // };
-
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(imageList));
   }, [imageList]);
