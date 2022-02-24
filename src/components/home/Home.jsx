@@ -53,7 +53,7 @@ export const Home = () => {
           multipleFiles={true}
           handleFiles={handleFiles}
         >
-          <button>Upload</button>
+          <button className="homeBtn">Upload</button>
         </ReactFileReader>
         <div className="homeImagePreview">
           {imageList.length > 0 &&

@@ -7,6 +7,12 @@
   font-family: "ZCOOL QingKe HuangYou", cursive;
 }
 
+:root {
+  --white: #fff;
+  --grey: #eeede7;
+  --green: #4bb543;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -17,4 +23,5 @@ html {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  background-color: var(--grey);
 }
