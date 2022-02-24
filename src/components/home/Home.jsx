@@ -14,8 +14,6 @@ const getLocalStorageItem = () => {
 };
 
 export const Home = () => {
-  const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState("");
   const [imageList, setImageList] = useState(getLocalStorageItem());
 
   // const submitHandler = (e) => {
