@@ -1,2 +1,2 @@
-# insta-2.0
+# upload-images-localStorage
 Created with CodeSandbox
